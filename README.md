@@ -1,2 +1,3 @@
 # frontTDD
-How to test Vue components with TDD (Jest/Vue-test-utils)
+This project was made to learn how to test Vue components and features like fetching Github api
+with TDD
