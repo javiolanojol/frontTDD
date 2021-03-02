@@ -1,11 +1,16 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <SpeakersView/>
+  </div>
 </template>
 
 <script>
-
+import SpeakersView from './views/SpeakersView';
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    SpeakersView
+  }
 
 }
 </script>

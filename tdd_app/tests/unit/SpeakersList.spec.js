@@ -47,4 +47,11 @@ describe('SpeakersList', () => {
         })
         expect(Speakers().length).toBe(2)
     })
+
+    it('send speaker data to the childs', () => {
+
+        const { Speakers } = build()
+
+        expect(Speakers().at(0).vm.speaker).toBe(speaker)
+    })
 })
