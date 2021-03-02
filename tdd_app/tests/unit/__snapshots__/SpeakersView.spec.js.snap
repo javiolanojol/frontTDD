@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpeakersView it should render components 1`] = `
+<div>
+  <searchform-stub></searchform-stub>
+  <speakerslist-stub speakers="[object Object],[object Object]"></speakerslist-stub>
+</div>
+`;
