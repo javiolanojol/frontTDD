@@ -1,27 +1,29 @@
 <template>
-  <div>
+  <div class="container">
     <SearchForm/>
-    <SpeakersList :speakers = "speakers"/>
-
+    <SpeakersList :speakers="speakers"/>
   </div>
 </template>
 
 <script>
-import SearchForm from '@/components/SearchForm';
-import SpeakersList from '@/components/SpeakersList';
+import SearchForm from '@/components/SearchForm'
+import SpeakersList from '@/components/SpeakersList'
 import { mapGetters } from 'vuex'
+
 export default {
-  name:'SpeakersView',
+  name: 'SpeakersView',
   components: {
     SearchForm,
     SpeakersList
   },
-  computed:{
+  computed: {
     ...mapGetters({speakers: 'speakers'})
   }
 }
 </script>
 
 <style scoped>
-
+.container {
+  padding: 20px;
+}
 </style>

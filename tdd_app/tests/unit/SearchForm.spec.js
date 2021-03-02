@@ -1,9 +1,11 @@
-import { shallowMount,createLocalVue} from '@vue/test-utils'
+import { mount, createLocalVue } from '@vue/test-utils'
 import SearchForm from '@/components/SearchForm'
 import Vuex from 'vuex'
+import Buefy from 'buefy'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
+localVue.use(Buefy)
 
 describe('SearchForm', () => {
     let store, actions
@@ -19,7 +21,7 @@ describe('SearchForm', () => {
     })
 
     const build = () => {
-        const wrapper = shallowMount(SearchForm, {
+        const wrapper = mount(SearchForm, {
             store,
             localVue
         })
@@ -31,14 +33,14 @@ describe('SearchForm', () => {
         }
     }
 
-    it('it renders the component', () => {
+    it('renders the component', () => {
 
         const { wrapper } = build()
 
         expect(wrapper.html()).toMatchSnapshot()
     })
 
-    it('it renders the right', () => {
+    it('renders the right', () => {
 
         const { input, button } = build()
 
@@ -56,17 +58,14 @@ describe('SearchForm', () => {
 
         expect(input().element.value).toBe('Speaker')
     })
+
     it('dispatches FETCH_SPEAKER when clicking the button with the correct parameters', () => {
-
         const { wrapper, button } = build()
-
         wrapper.setData({
             inputData: 'Speaker'
         })
-
         button().trigger('click')
         expect(actions.FETCH_SPEAKER).toHaveBeenCalled()
-
         expect(actions.FETCH_SPEAKER.mock.calls[0][1]).toEqual("Speaker")
     })
 })
